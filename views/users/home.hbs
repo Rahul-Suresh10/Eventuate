@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/login/home.css">
+  <title>Home</title>
+</head>
+<body>
+
+  <!-- Navigation Bar-->
+  <nav>
+    <div class="left-header">
+      <div>
+        <a><img class="logo" src="/css/login/eventuate-logo.png" alt=""></a> 
+      </div>
+    </div>
+
+    <div class="middle-header">
+      <div>
+        <input id="searchInput" class="search-bar" type="text" placeholder="search for company/category/location">
+      </div>
+      <div style="margin-left: -13px;">
+        <img class="search-icon" src="/css/login/search-icon.png" alt="">
+      </div>
+        
+    </div>
+
+    <div class="right-header">
+
+      <div style="margin-right: 20px;">
+        <!-- Use an anchor tag for redirection -->
+<a href="/bookinghistory" class="event-cart-button"><img class="event-cart" src="/css/login/event-cart.png" alt=""></a>
+
+        
+      </div>
+
+      <div class="account-info">
+        <p class="account-name">{{user.name}}</p>
+      </div>
+      <div>
+        <img class="account-img" src="/css/login/account.png" alt="">
+      </div>
+    </div>
+  </nav>
+
+  <!-- Left Bar -->
+  <div class="left-bar">
+    <div style="margin-bottom: 20px; display: flex; align-items: center;">
+       {{!-- <div>
+        <input id="dateInput" type="date" class="date-input" placeholder="Select the date">
+      </div> --}}
+       {{!-- <div class="selectevent">
+      <p>select the date for event</p>
+      </div>  --}}
+      <button class="logout-button" onclick="confirmlogout()">Log Out<img class="logout-img" src="/css/login/power.png" alt=""></button>
+   {{!-- <button class="filter">filter</button> --}}
+    </div>
+    <script>
+      function confirmlogout() {
+        const confirmation = window.confirm("Are you sure want to log out?");
+        if (confirmation) {
+          window.location.href = '/logout';
+        } else {
+          // Do nothing or handle cancellation
+        }
+      }
+    </script>
+  </div>
+
+  <!-- Suggestions -->
+  <div class="suggestions">
+    <div class="top-suggestion-plate">
+      <p>Top Suggestions</p>
+    </div>
+
+    <div class="suggestion-card">
+      <img class="suggestion-img" src="{{company.[0].compimage}}" alt="" />
+      <div class="suggestion-card-info">
+        <p style="text-align: center; margin-right: 30px;">{{company.[5].compname}}</p>
+        <div class="mini-info-box">
+          <p class="mini-info">{{company.[5].complocation}}</p>
+          <p class="mini-info">{{company.[5].compcategory}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="suggestion-card">
+      <img class="suggestion-img" src="{{company.[3].compimage}}" alt="" />
+      <div class="suggestion-card-info">
+        <p style="text-align: center; margin-right: 30px;">{{company.[3].compname}}</p>
+        <div class="mini-info-box">
+          <p class="mini-info">{{company.[3].complocation}}</p>
+          <p class="mini-info">{{company.[3].compcategory}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="suggestion-card">
+      <img class="suggestion-img" src="{{company.[2].compimage}}" alt="" />
+      <div class="suggestion-card-info">
+        <p style="text-align: center; margin-right: 30px;">{{company.[2].compname}}</p>
+        <div class="mini-info-box">
+          <p class="mini-info">{{company.[2].complocation}}</p>
+          <p class="mini-info">{{company.[2].compcategory}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Main Card Grid -->
+  
+  <div class="main-card-grid">
+    {{#each company}}
+    <form action="/booking" method="POST">
+      <div class="main-card search-result hidden-card">
+        <div>
+          <img class="main-card-img" src="{{image}}" alt='{{compname}}'>
+        </div>
+        <div class="team-info">
+          <div class="team-name">{{compname}}</div>
+          <p>Location:{{complocation}}</p>
+          <p>Category:{{compcategory}}</p>
+          <input type="hidden" name="compregno" value="{{compregno}}">
+          <div ><button class="card-button">BOOK NOW</button></div>
+        </div>
+      </div>
+      </form>
+    {{/each}}
+  </div>
+
+  
+ <!-- Include this script after your existing script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const mainCardGrid = document.querySelector('.main-card-grid');
+    const mainCards = document.querySelectorAll('.main-card');
+
+    // Store the initial state of the cards
+    const initialCardsState = Array.from(mainCards).map(card => card.cloneNode(true));
+
+    searchInput.addEventListener('input', function () {
+      const searchTerm = searchInput.value.toLowerCase();
+
+      // Create a document fragment to store the search-result elements
+      const fragment = document.createDocumentFragment();
+
+      mainCards.forEach(function (card, index) {
+        const cardName = card.querySelector('.team-name').textContent.toLowerCase();
+        const cardLocation = card.querySelector('.team-info p:nth-child(2)').textContent.toLowerCase();
+        const cardCategory = card.querySelector('.team-info p:nth-child(3)').textContent.toLowerCase();
+
+        const matchesName = cardName.includes(searchTerm);
+        const matchesLocation = cardLocation.includes(searchTerm);
+        const matchesCategory = cardCategory.includes(searchTerm);
+
+        const isMatch = matchesName || matchesLocation || matchesCategory;
+
+        if (isMatch) {
+          card.classList.add('search-result');
+          // Append search-result cards to the fragment
+          fragment.appendChild(card.cloneNode(true));
+        } else {
+          card.classList.remove('search-result');
+        }
+      });
+
+      // Clear the main card grid
+      mainCardGrid.innerHTML = '';
+
+      // Append the fragment (search-result elements) to the main card grid
+      mainCardGrid.appendChild(fragment);
+
+      // If the search input is empty, revert to the initial state
+      if (!searchTerm.trim()) {
+        mainCardGrid.innerHTML = '';
+        initialCardsState.forEach(card => mainCardGrid.appendChild(card.cloneNode(true)));
+      }
+    });
+  });
+</script>
+
+ 
+</body>
+</html>

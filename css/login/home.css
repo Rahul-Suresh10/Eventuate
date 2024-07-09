@@ -1,0 +1,570 @@
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.816), rgba(14, 1, 1, 0.921)), url('home-bbg.png');
+
+  box-shadow: inset 0 0 30px black;
+
+  background-position: center;
+  background-size: cover;
+  overflow-x: hidden;
+  
+
+
+
+}
+
+
+nav {
+  background-color: rgba(0, 0, 0, 0.793);
+  position: fixed;
+  height: 70px;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 20;
+
+}
+
+.left-header {
+  width: 1fr;
+
+}
+
+.logo {
+  margin-left: 40px;
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+}
+
+.logo:hover
+{
+  opacity: 0.7;
+}
+
+
+.middle-header{
+  width: 1fr;
+
+
+  display: flex;
+  align-items: center;
+
+}
+
+.search-bar {
+  background: linear-gradient(60deg,rgba(253, 21, 21, 0.2),rgba(217, 38, 38, 0.5));
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.781);
+  margin-right: 20px;
+  width: 100%;
+  min-width: 300px;
+
+
+}
+
+.search-bar::placeholder{
+  color: rgba(255, 255, 255, 0.296);
+}
+.search-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+}
+
+.search-icon:hover {
+  opacity: 0.5;
+  width: 30px;
+  height: 30px;
+}
+
+.right-header {
+  width: 1fr;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  justify-content: space-between;
+}
+
+.event-cart {
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  border-radius: 25px;
+  object-fit: cover;
+  object-position: center;
+  margin-right: 20px;
+  background-color: rgb(224, 7, 7);
+
+}
+
+.event-cart-button {
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+  background-color: transparent;
+  
+  
+}
+
+.event-cart:hover{
+  opacity: 0.6;
+
+}
+
+
+.account-info {
+  color: white;
+  font-weight: bold;
+  width: 90px;
+  margin-right: 10px;
+}
+
+
+.account-img{
+
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  object-fit: contain;
+  object-position: center;
+  margin-right: 30px;
+
+  background-color: rgb(224, 7, 7);
+}
+
+
+.left-bar {
+
+  background-color: rgba(8, 8, 8, 0.767);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 70px;
+  width: 300px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.807);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Times New Roman', Times, serif;
+  justify-content: end;
+
+
+}
+
+.filter-box {
+
+  height: 500px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Times New Roman', Times, serif;
+
+  
+  
+}
+.filter-box h2 {
+  color: rgba(255, 255, 255, 0.423);
+  margin: 5px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.filter-box-heading {
+
+  margin: 5px;
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  
+  color: rgba(255, 255, 255, 0.551);
+
+
+}
+
+.logout-button {
+  display: flex;
+  width: 190px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.63);
+  font-size: 23px;
+  font-family: 'Times New Roman', Times, serif;
+  align-items: center;
+  
+  
+}
+
+.logout-button:hover {
+  opacity: 0.8;
+}
+
+.logout-img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  margin-left: 15px;
+  border-radius: 25px;
+  background-color: rgb(151, 6, 6);
+}
+
+.rating-button,.price-button {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 30px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  border-radius: 10px;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
+.active 
+{
+  background-color: rgba(255, 0, 0, 0.248);
+  color: white;
+}
+
+
+.rating-filter,.price-filter {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  
+  
+}
+
+
+.rating-filter p,.price-filter  p {
+  margin: 2px;
+  color: rgba(255, 255, 255, 0.69);
+
+}
+
+
+.rating-filter,.price-filter {
+
+  display: none;
+  align-items: center;
+}
+
+.suggestions {
+
+  margin-top: 100px;
+  margin-left: 350px;
+  margin-right: 20px;
+  display: flex;
+
+  height: 250px;
+  width: 1fr;
+  background-color: rgba(32, 31, 31, 0.519);
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 20px;
+  column-gap: 10px;
+  animation-name: suggestion-box;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  position: relative;
+  
+}
+
+.top-suggestion-plate {
+  position: absolute;
+
+  transform: rotateZ(-90deg);
+  color: rgba(245, 245, 245, 0.733);
+  font-size: 30px;
+
+ 
+  background-color: transparent;
+  left: 0;
+  top: 30px;
+  height: 200px;
+
+  z-index: 10;
+  
+}
+
+.top-suggestion-plate p {
+  margin-left: 0;
+}
+
+@keyframes suggestion-box {
+
+  0% { background-color: transparent;}
+  25% {background-color: rgba(255, 0, 0, 0.126);}
+  50% { background-color: rgba(255, 0, 0, 0.316) }
+  75% { background-color: rgba(255, 0, 0, 0.14);}
+  100% {background-color: transparent; }
+  
+  
+}
+
+.suggestion-card {
+
+  height: 220px;
+  width: 355px;
+  background-color: rgba(33, 32, 32, 0.852);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.752);
+  transition: box-shadow 0.15s;
+  cursor: pointer;
+  position: relative;
+
+  
+}
+
+.suggestion-card-info {
+  display: flex;
+  flex-direction: column;
+ 
+  position: absolute;
+  z-index: 3;
+  color: rgba(255, 255, 255, 0.584);
+  font-size: 24px;
+  margin-top: 10px;
+  bottom: 10px;
+
+}
+
+.suggestion-card:hover {
+  box-shadow: 0 0 0 transparent;
+  opacity: 0.8;
+
+
+
+
+}
+
+.suggestion-img  {
+  height: 220px;
+  width: 355px;
+  object-fit: cover;
+  object-position: top;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: absolute;
+  z-index: 5;
+  transition: height 0.15s;
+
+}
+
+.suggestion-img:hover {
+  height: 140px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.suggestion-card  p {
+  color: rgba(255, 255, 255, 0.584);
+
+  margin: 3px;
+}
+
+.mini-info-box 
+{
+ display: flex;
+ flex-direction: row;
+ column-gap: 40px
+}
+
+.mini-info {
+  
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.267);
+  font-size: 20px;
+  width: 90px;
+ 
+  
+  
+  }
+
+.main-card-grid {
+
+
+  background-color: rgba(32, 31, 31, 0.519);
+  margin-left: 350px;
+  margin-right: 20px;
+  margin-top: 85px;
+
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 340px 340px 340px 340px;
+  padding: 20px 30px;
+
+  row-gap: 30px;
+  column-gap: 35px;
+  
+  justify-content: center;
+  position: relative;
+  
+  
+
+}
+
+
+
+.main-card {
+  height: 400px;
+  width: 350px;
+  background-color: rgba(57, 35, 35, 0.549);
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.752);
+  transition: box-shadow 0.15s;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+}
+
+
+
+
+.main-card:hover {
+  
+  box-shadow: 0 0 0 transparent;
+  opacity: 0.8;
+  transform: rotateY(10deg)
+}
+
+.main-card:active {
+  opacity: 0.5;
+}
+
+.main-card-img {
+  height: 190px;
+  width: 350px;
+  object-position: top;
+  object-fit: cover;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+.team-info {
+  margin-top: 10px;
+ 
+  
+  height: 200px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;  
+  row-gap: 10px;
+  align-items: center;
+ 
+}
+
+.team-info p {
+  
+  color: rgba(255, 255, 255, 0.729);
+  font-size: 18px;
+  margin: 0;
+}
+
+.team-name {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgba(98, 54, 37, 0.544);
+  padding: 10px;
+  width: 200px;
+  border-radius: 20px 20px / 60px 60px;
+  color: rgba(255, 255, 255, 0.729);
+  margin-bottom: 20px;
+  
+}
+
+.main-card:not(.search-result) {
+  display: none;
+}
+
+/* Add this to your existing CSS */
+.search-result {
+  display: flex; /* or whatever display property you want for search results */
+}
+
+.date-input {
+  height: 33px;
+  width:  155px;
+  background: linear-gradient(60deg,rgba(253, 21, 21, 0.2),rgba(217, 38, 38, 0.5));
+  border: none;
+  border-radius: 5px;
+  margin-left: 30px;
+  object-position: center;
+  color: rgba(146, 135, 135, 0.781);
+  position: fixed;
+  top: 115px;
+  left: 1px;
+
+
+}
+
+.selectevent{
+
+  color: rgba(146, 135, 135, 0.781);
+  position: fixed;
+  top: 50px;
+  left:15px;
+  font-size: 27px;
+
+}
+
+.filter{
+
+ position: fixed;
+ top: 130px;
+ left: 190px;
+ font-size: 23px;
+ background: linear-gradient(60deg,rgba(253, 21, 21, 0.2),rgba(217, 38, 38, 0.5));
+ border-radius: 5px;
+ color:rgba(146, 135, 135, 0.781); 
+ font-size: 10px;
+
+}
+
+.card-button {
+
+  color: rgba(255, 255, 255, 0.76);
+  background-color: black;
+  border-radius: 20px;
+  width: 120px;
+  padding: 10px;
+  border-color: rgba(196, 35, 35, 0.836);
+  border-width: 1.5px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+  font-weight: bold;
+
+
+}
+
+.card-button:hover {
+  opacity: 0.8;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.514);
+  
+}
+
+
+
+
+
+
